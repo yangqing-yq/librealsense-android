@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.realsense_app.StreamSurface
+                android:id="@+id/streamDepth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="180dp"
+                android:minWidth="240dp"
+                android:orientation="vertical"
+                app:DefaultEnable="true"
+                app:DefaultFPS="6"
+                app:DefaultFormat="Z16"
+                app:DefaultHeight="480"
+                app:DefaultStream="Depth"
+                app:DefaultWidth="640"
+                app:FormatList="Z16,RGB8,Y8"
+                app:HeightList="720,480"
+                app:WidthList="1280,848,640"
+                app:FPSList="30,15,6"
+                app:StreamList="Depth,Color,Infrared" />
+
+            <com.example.realsense_app.StreamSurface
+                android:id="@+id/streamColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="180dp"
+                android:minWidth="240dp"
+                android:orientation="vertical"
+                app:DefaultEnable="true"
+                app:DefaultFPS="6"
+                app:DefaultFormat="RGB8"
+                app:DefaultHeight="480"
+                app:DefaultStream="Color"
+                app:DefaultWidth="640"
+                app:FormatList="Z16,RGB8,Y8"
+                app:HeightList="720,480"
+                app:WidthList="1280,848,640"
+                app:FPSList="30,15,6"
+                app:StreamList="Depth,Color,Infrared" />
+
+            <com.example.realsense_app.StreamSurface
+                android:id="@+id/streamIR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="180dp"
+                android:minWidth="240dp"
+                android:orientation="vertical"
+                app:DefaultEnable="true"
+                app:DefaultFPS="6"
+                app:DefaultFormat="RGB8"
+                app:DefaultHeight="480"
+                app:DefaultStream="Infrared"
+                app:DefaultWidth="640"
+                app:FormatList="Z16,RGB8,Y8"
+                app:HeightList="720,480"
+                app:WidthList="1280,848,640"
+                app:FPSList="30,15,6"
+                app:StreamList="Depth,Color,Infrared">
+
+            </com.example.realsense_app.StreamSurface>
+
+            <TextView
+                android:id="@+id/logView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:text="TextView" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ToggleButton
+        android:id="@+id/toggleButtonPower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:enabled="true"
+        android:text="Power"
+        android:textOff="Init"
+        android:textOn="Close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:text="HW_INFO"
+        android:textOff="HW_INFO"
+        android:textOn="HW_INFO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toggleButtonSwitch" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginRight="124dp"
+        android:text="ToggleButton"
+        android:textOff="I/D"
+        android:textOn="I/D"
+        android:checked="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toggleButtonPlay" />
+
+    <ToggleButton
+        android:id="@+id/toggleButtonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:checked="true"
+        android:text="ToggleButton"
+        android:textOff="Play"
+        android:textOn="Stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

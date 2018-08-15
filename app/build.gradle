@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        realsense_app {
+            keyPassword 'intel.123'
+            storeFile file('C:/Users/QY.Li/realsense_app.jks')
+            storePassword 'intel.123'
+            keyAlias 'key0'
+        }
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.realsense_app"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++14 -frtti -fexceptions"
+                //abiFilters 'armeabi-v7a'
+                abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+                arguments "-DBUILD_SHARED_LIBS=ON", "-D__ANDROID__=1", "-DCMAKE_BUILD_TYPE=Release"
+                //cFlags ""
+                targets "realsense2"
+            }
+            cmake {
+                cppFlags "-std=c++14 -frtti -fexceptions"
+                //abiFilters 'armeabi-v7a'
+                abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+                //arguments ""
+                //cFlags ""
+                targets "native-lib"
+            }
+        }
+        signingConfig signingConfigs.realsense_app
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.realsense_app
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

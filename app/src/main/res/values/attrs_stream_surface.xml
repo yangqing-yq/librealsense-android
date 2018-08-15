@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StreamSurface">
+        <attr name="StreamList" format="string" />
+        <attr name="FormatList" format="string" />
+        <attr name="HeightList" format="string" />
+        <attr name="WidthList" format="string" />
+        <attr name="FPSList" format="string" />
+        <attr name="DefaultEnable" format="boolean" />
+        <attr name="DefaultStream" format="string" />
+        <attr name="DefaultFormat" format="string" />
+        <attr name="DefaultWidth" format="string" />
+        <attr name="DefaultHeight" format="string" />
+        <attr name="DefaultFPS" format="string" />
+
+    </declare-styleable>
+</resources>
